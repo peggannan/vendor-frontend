@@ -1,6 +1,6 @@
 // src/api/mockApi.js
 export const mockUser = { id: 1, name: "Kwadwo Mensah", email: "kwadwo@gmail.com" };
-export const mockToken = "mock-token-123";
+export const mockToken = "my-app-123";
 
 export const mockStats = {
   total_revenue: 1240,
