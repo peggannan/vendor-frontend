@@ -33,7 +33,7 @@ export default function Signup() {
       <div className="w-14 h-14 bg-brand-600 rounded-2xl flex items-center justify-center mb-3">
         <span className="text-white font-bold text-xl">V</span>
       </div>
-      <h1 className="text-xl font-bold text-gray-800 mb-1">App Name</h1>
+      <h1 className="text-xl font-bold text-gray-800 mb-1">Vendor Tracker</h1>
       <p className="text-gray-400 text-sm mb-8">Register Using Your Credentials</p>
 
       <form onSubmit={handleSubmit} className="w-full flex flex-col gap-4">
