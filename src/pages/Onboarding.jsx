@@ -1,17 +1,23 @@
 // src/pages/Onboarding.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import onboard1 from "../assets/onboarding1.svg";
+import onboard2 from "../assets/onboarding2.svg";
+import onboard3 from "../assets/onboarding3.svg";
 
 const slides = [
   {
+    image: onboard1,
     title: "Welcome to Shelfline",
     desc: "Your shop, in your pocket. Track sales, manage stock, and grow your business from anywhere.",
   },
   {
+    image: onboard2,
     title: "Manage Sales Efficiently",
     desc: "Built for the hustle. Record sales, track stock, and know your numbers.",
   },
   {
+    image: onboard3,
     title: "Grow Your Business",
     desc: "Increase your work management & career development radically.",
   },
@@ -27,10 +33,13 @@ return (
 
     {/* Illustration */}
     <div className="flex-1 flex items-center justify-center w-full">
-      <div className="w-56 h-56 bg-white/10 rounded-3xl flex items-center justify-center">
-        <span className="text-white/40 text-sm">Illustration</span>
-      </div>
+     <img
+        src={slides[slide].image}
+        alt={slides[slide].title}
+        className="w-72 h-72 object-contain drop-shadow-xl"
+      />
     </div>
+
 
     {/* Text */}
     <div className="text-center mb-6 px-2">
