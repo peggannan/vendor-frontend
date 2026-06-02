@@ -83,6 +83,8 @@ export default function Dashboard() {
 
       <div className="px-4 pt-5">
 
+        
+
         {/* Page title + Record Sale button */}
         <div className="flex items-start justify-between mb-4">
           <div>
@@ -111,7 +113,7 @@ export default function Dashboard() {
             <p className="text-2xl font-bold text-gray-800 dark:text-gray-100">
               {loading ? "—" : `₵ ${stats?.total_revenue ?? 0}`}
             </p>
-            <p className="text-xs text-gray-400 mt-1">Daily Cumulative</p>
+            <p className="text-xs text-gray-400 mt-1">Daily Total</p>
           </div>
 
           {/* This Week */}
@@ -188,13 +190,13 @@ export default function Dashboard() {
         {stats?.top_product && (
           <div className="bg-gray-900 dark:bg-gray-950 rounded-2xl p-4 mb-5 flex items-center justify-between overflow-hidden relative">
             <div className="flex-1">
-              <span className="text-[9px] font-bold tracking-widest text-brand-400 uppercase bg-brand-600/20 px-2 py-0.5 rounded-full">
+              <span className="text-[9px] font-bold tracking-widest text-gray-300 uppercase bg-brand-600/60 px-2 py-0.5 rounded-full">
                 Highlight Top Match
               </span>
               <p className="text-white font-bold text-base mt-2 mb-1">
                 {stats.top_product.name}
               </p>
-              <p className="text-xs text-gray-400">
+              <p className="text-xs text-gray-300">
                 Most popular choice with{" "}
                 <span
                   onClick={() => navigate("/products")}
@@ -221,9 +223,9 @@ export default function Dashboard() {
           </p>
           <button
             onClick={() => navigate("/transactions")}
-            className="text-xs text-gray-400"
+            className="text-xs text-gray-400 underline font-medium"
           >
-            Transactions over 24 hours
+            View More
           </button>
         </div>
 
@@ -233,6 +235,8 @@ export default function Dashboard() {
           <p className="text-gray-400 text-sm text-center py-8">No transactions yet</p>
         ) : (
           <div className="flex flex-col gap-3">
+
+            
             {sales.map((sale) => (
               <div
                 key={sale.id}
@@ -253,13 +257,26 @@ export default function Dashboard() {
                   <span className="text-xs text-gray-400">ID: TX-{sale.id}</span>
                 </div>
 
-                {/* Middle row — avatar + name + amount */}
+                {/* Middle row — product image + name + amount */}
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2.5">
-                    <Avatar name={sale.customer_name ?? sale.product_name} />
+                    {/* Product image or fallback icon */}
+                    <div className="w-10 h-10 rounded-xl bg-brand-100 flex items-center justify-center flex-shrink-0 overflow-hidden">
+                      {sale.product_image ? (
+                        <img
+                          src={sale.product_image}
+                          alt={sale.product_name}
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <svg width="18" height="18" fill="none" stroke="#6c47ff" strokeWidth="1.5">
+                          <path d="M9 1L1 5l8 4 8-4-8-4zM1 13l8 4 8-4M1 9l8 4 8-4" />
+                        </svg>
+                      )}
+                    </div>
                     <div>
                       <p className="font-bold text-gray-800 dark:text-gray-100 text-sm">
-                        {sale.customer_name ?? sale.product_name}
+                        {sale.product_name}
                       </p>
                       <p className="text-xs text-gray-400">
                         {sale.product_name} (x{sale.quantity})
@@ -274,12 +291,12 @@ export default function Dashboard() {
                   </div>
                 </div>
 
-                {/* Bottom row — staff + status */}
+                {/* Bottom row — customer name + status */}
                 <div className="flex items-center justify-between pt-2 border-t border-gray-50 dark:border-gray-700">
                   <p className="text-xs text-gray-400">
-                    By Staff:{" "}
+                    By:{" "}
                     <span className="font-semibold text-gray-600 dark:text-gray-300">
-                      {sale.staff_name ?? "—"}
+                      {sale.customer_name ?? "—"}
                     </span>
                   </p>
                   <StatusBadge status={sale.status ?? "Approved"} />
@@ -292,7 +309,7 @@ export default function Dashboard() {
       </div>
 
       {/* FAB */}
-      <div className="fixed bottom-20 right-4 flex flex-col items-end gap-3 z-20">
+      <div className="fixed bottom-20 flex flex-col items-end gap-3 z-20" style={{ right: "max(1rem, calc((100vw - 512px) / 2 + 1rem))" }}>
         {fabOpen && (
           <>
             <button

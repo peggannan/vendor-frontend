@@ -1,7 +1,7 @@
 // src/api/api.js
 import axios from "axios";
 import {
-  mockUser, mockToken, mockStats, mockProducts, mockSales
+  mockUser, mockToken, mockStats, mockProducts, mockSales, mockCustomers
 } from "./mockApi";
 
 const USE_MOCK = true; // 👈 flip to false when backend is ready
@@ -119,6 +119,31 @@ export const getDashboard = async () => {
   return api.get("/api/dashboard");
 };
 
+// CUSTOMERS
+
+export const getCustomers = async () => {
+  if (USE_MOCK) {
+    await delay();
+    return { data: { customers: mockCustomers } };
+  }
+  return api.get("/api/customers");
+};
+
+export const addCustomer = async (data) => {
+  if (USE_MOCK) {
+    await delay();
+    return { data: { customer: { id: Date.now(), ...data, purchases: 0, total: 0, credit_owed: 0 } } };
+  }
+  return api.post("/api/customers", data);
+};
+
+export const editCustomer = async (id, data) => {
+  if (USE_MOCK) {
+    await delay();
+    return { data: { customer: { id, ...data } } };
+  }
+  return api.put(`/api/customers/${id}`, data);
+};
 
 
 

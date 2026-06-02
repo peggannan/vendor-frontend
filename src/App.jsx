@@ -14,6 +14,8 @@ import Products from "./pages/Products";
 import RecordSale from "./pages/RecordSale";
 import Transactions from "./pages/Transactions";
 import Customers from "./pages/Customers";
+import CustomerDetail from "./pages/CustomerDetail";
+import AddCustomer from "./pages/AddCustomer";
 import Reports from "./pages/Reports";
 import Settings from "./pages/Settings";
 
@@ -41,6 +43,9 @@ export default function App() {
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/products/:id" element={<ProductDetail />} />
             <Route path="/sales/:id" element={<SaleDetail />} />
+            <Route path="/customers/new" element={<AddCustomer />} />
+            <Route path="/customers/:id" element={<CustomerDetail />} />
+            
           </Route>
 
           <Route path="*" element={<Navigate to="/" />} />

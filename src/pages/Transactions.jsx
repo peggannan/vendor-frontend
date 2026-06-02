@@ -70,6 +70,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getSalesHistory } from "../api/api";
+import PageHeader from "../components/PageHeader";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 
@@ -149,6 +150,7 @@ export default function SalesHistory() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-24 max-w-lg mx-auto">
       <Header />
+      <PageHeader title="Transactions" />
 
       <div className="px-4 pt-4">
 

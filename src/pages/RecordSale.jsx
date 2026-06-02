@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { getProducts, recordSale } from "../api/api";
 import { useNavigate } from "react-router-dom";
+import PageHeader from "../components/PageHeader";
 import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 
@@ -46,7 +47,7 @@ export default function RecordSale() {
 
   return (
     <div className="min-h-screen bg-gray-50 pb-24 max-w-lg mx-auto">
-      <Header title="Record Sale" />
+      <PageHeader title="Record Sale" />
 
       <div className="px-4 pt-6 flex flex-col gap-4">
         <div>

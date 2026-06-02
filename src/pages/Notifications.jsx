@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getInventory } from "../api/api";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
+import PageHeader from "../components/PageHeader";
 import Navbar from "../components/Navbar";
 
 export default function Notifications() {
@@ -52,7 +53,7 @@ export default function Notifications() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-24 max-w-lg mx-auto">
-      <Header title="Notifications" />
+      <PageHeader title="Notifications" />
 
       <div className="px-4 pt-4">
         {loading ? (

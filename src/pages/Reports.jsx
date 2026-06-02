@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import { getDashboard, getSalesHistory } from "../api/api";
 import Header from "../components/Header";
+import PageHeader from "../components/PageHeader";
 import Navbar from "../components/Navbar";
 
 export default function Reports() {
@@ -21,6 +22,7 @@ export default function Reports() {
   return (
     <div className="min-h-screen bg-gray-50 pb-24 max-w-lg mx-auto">
       <Header title="Reports" />
+      <PageHeader title="Reports" />
 
       <div className="px-4 pt-4">
         <div className="grid grid-cols-2 gap-3 mb-5">

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { getProducts, editProduct, deleteProduct } from "../api/api";
 import Header from "../components/Header";
+import PageHeader from "../components/PageHeader";
 import Navbar from "../components/Navbar";
 
 export default function ProductDetail() {

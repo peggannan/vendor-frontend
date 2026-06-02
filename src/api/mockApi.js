@@ -29,3 +29,10 @@ export const mockSales = [
   { id: 4, product_name: "Mango Juice", quantity: 2, total: 12, created_at: "2026-05-29" },
   { id: 5, product_name: "Orange Juice", quantity: 4, total: 20, created_at: "2026-05-28" },
 ];
+
+export const mockCustomers = [
+  { id: 1, name: "Kwadwo Mensah", phone: "+233 24 567 5647", email: "kwadwom@gmail.com", purchases: 22, total: 1245, credit_owed: 120 },
+  { id: 2, name: "Elaine Thompson", phone: "+233 50 123 4567", email: "elaine.t@live.com", purchases: 14, total: 890.50, credit_owed: 0 },
+  { id: 3, name: "Richard Boateng", phone: "+233 20 987 6543", email: "richard.b@outlook.com", purchases: 8, total: 678, credit_owed: 350 },
+  { id: 4, name: "Abena Osei", phone: "+233 27 345 6789", email: "abena.o@gmail.com", purchases: 5, total: 430, credit_owed: 0 },
+];
