@@ -1,5 +1,7 @@
 // src/pages/Login.jsx
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate, Link } from "react-router-dom";
 import { login } from "../api/api";
 import { useAuth } from "../context/AuthContext";
@@ -46,14 +48,28 @@ export default function Login() {
           </div>
           <div>
             <label className="text-sm text-gray-600 mb-1 block">Password</label>
-            <input
-              type="password"
-              placeholder="My Password"
-              value={form.password}
-              onChange={(e) => setForm({ ...form, password: e.target.value })}
-              className={`w-full border rounded-xl px-4 py-3 text-sm focus:outline-none ${error ? "border-red-400" : "border-gray-200 focus:border-brand-500"}`}
-              required
-            />
+            {(() => {
+              const [showPw, setShowPw] = useState(false);
+              return (
+                <div className="relative">
+                  <input
+                    type={showPw ? "text" : "password"}
+                    placeholder="My Password"
+                    value={form.password}
+                    onChange={(e) => setForm({ ...form, password: e.target.value })}
+                    className={`w-full border rounded-xl px-4 py-3 pr-11 text-sm focus:outline-none ${error ? "border-red-400" : "border-gray-200 focus:border-brand-500"}`}
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPw((s) => !s)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"
+                  >
+                    <FontAwesomeIcon icon={showPw ? faEyeSlash : faEye} />
+                  </button>
+                </div>
+              );
+            })()}
           </div>
 
           {error && <p className="text-red-500 text-sm">{error}</p>}

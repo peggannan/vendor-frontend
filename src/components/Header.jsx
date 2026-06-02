@@ -36,7 +36,7 @@ export default function Header({ showSearch = true }) {
 
   return (
     <>
-      <header className="sticky top-0 z-10 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 px-4 py-3 relative">
+      <header className="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-100 dark:border-gray-800 px-4 py-3 relative">
         <div className="flex items-center gap-3 max-w-lg mx-auto">
 
           {/* Left — hamburger + shop info */}
@@ -55,7 +55,7 @@ export default function Header({ showSearch = true }) {
               {/* <div className="w-4 h-4 bg-brand-600 rounded-sm flex items-center justify-center"> */}
                 {/* <FontAwesomeIcon icon={faMagnifyingGlass} className="text-white text-xs" /> */}
               
-              <span className="text-[10px] font-bold text-gray-200 tracking-widest uppercase">
+              <span className="text-[10px] font-bold text-gray-700 dark:text-gray-100 tracking-widest uppercase">
                 {brandName}
               </span>
             </div>
@@ -95,7 +95,7 @@ export default function Header({ showSearch = true }) {
 
           {/* Search results dropdown */}
           {searchActive && searchQuery && (
-            <div className="absolute top-full left-0 right-0 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl shadow-xl mt-1 mx-4 z-50 overflow-hidden max-h-64 overflow-y-auto">
+            <div className="absolute top-full left-0 right-0 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-2xl shadow-xl mt-1 mx-4 z-[100] overflow-hidden max-h-64 overflow-y-auto">
               {searchResults.length === 0 ? (
                 <p className="text-sm text-gray-400 text-center py-4">No results for "{searchQuery}"</p>
               ) : (

@@ -19,9 +19,9 @@ export default function HamburgerMenu({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const links = [
-    {to: "user-profile", label: "My Profile"},
+    {to: "/user-profile", label: "My Profile"},
     { to: "/customers", label: "Customers" },
-    { to: "/sales-history", label: "Sales History" },
+    { to: "/transactions", label: "Transactions" },
     { to: "/reports", label: "Reports" },
     { to: "/settings", label: "Settings" },
   ];
@@ -41,7 +41,7 @@ export default function HamburgerMenu({ isOpen, onClose }) {
 
       {/* Profile */}
       <div
-        onClick={() => { navigate("/profile"); onClose(); }}
+        onClick={() => { navigate("/user-profile"); onClose(); }}
         className="flex items-center gap-3 mb-8 cursor-pointer"
       >
         <div className="w-12 h-12 rounded-full bg-brand-100 flex items-center justify-center text-brand-600 font-bold text-lg">

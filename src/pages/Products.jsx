@@ -171,10 +171,10 @@ export default function Products() {
         {/* Stat pills */}
         <div className="grid grid-cols-4 gap-2 mb-4">
           {[
-            { label: "Total Items", value: products.length, sub: "Physical items" },
+            { label: "Total Items", value: products.length},
             { label: "Low Stock", value: lowStockCount, sub: "Below threshold", danger: true },
-            { label: "Total Sold", value: totalSold, sub: "Shipped sales", success: true },
-            { label: "Returned", value: 0, sub: "Replacements" },
+            { label: "Total Sold", value: totalSold, success: true },
+            { label: "Returned", value: 0 },
           ].map(({ label, value, sub, danger, success }) => (
             <div key={label} className="bg-white dark:bg-gray-800 rounded-xl p-2.5 shadow-sm text-center">
               <p className="text-[9px] text-gray-400 uppercase tracking-wide leading-tight mb-1">{label}</p>
