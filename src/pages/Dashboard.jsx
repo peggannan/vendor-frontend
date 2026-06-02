@@ -78,7 +78,7 @@ export default function Dashboard() {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-24 max-w-lg mx-auto">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 pb-24 max-w-lg mx-auto">
       <Header />
 
       <div className="px-4 pt-5">
@@ -108,18 +108,18 @@ export default function Dashboard() {
         <div className="grid grid-cols-2 gap-3 mb-4">
 
           {/* Today */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
-            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">Today</p>
-            <p className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+            <p className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Today</p>
+            <p className="text-2xl font-bold text-gray-800 dark:text-white">
               {loading ? "—" : `₵ ${stats?.total_revenue ?? 0}`}
             </p>
             <p className="text-xs text-gray-400 mt-1">Daily Total</p>
           </div>
 
           {/* This Week */}
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm">
-            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">This Week</p>
-            <p className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm border border-gray-100 dark:border-gray-700">
+            <p className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">This Week</p>
+            <p className="text-2xl font-bold text-gray-800 dark:text-white">
               {loading ? "—" : `₵ ${stats?.weekly_revenue ?? 0}`}
             </p>
             {!loading && (
@@ -148,8 +148,8 @@ export default function Dashboard() {
           </div>
 
           {/* Low Stock */}
-          <div className={`rounded-2xl p-4 shadow-sm ${stats?.low_stock?.length > 0 ? "bg-red-50 dark:bg-red-950" : "bg-white dark:bg-gray-800"}`}>
-            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">Low Stock</p>
+          <div className={`rounded-2xl p-4 shadow-sm border ${stats?.low_stock?.length > 0 ? "bg-red-50 dark:bg-red-950 border-red-100 dark:border-red-900" : "bg-white dark:bg-gray-800 border-gray-100 dark:border-gray-700"}`}>
+            <p className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Low Stock</p>
             {loading ? (
               <p className="text-gray-400 text-sm">—</p>
             ) : stats?.low_stock?.length > 0 ? (
@@ -175,10 +175,10 @@ export default function Dashboard() {
           {/* Total Customers */}
           <div
             onClick={() => navigate("/customers")}
-            className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm cursor-pointer active:scale-[0.98] transition-transform"
+            className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer active:scale-[0.98] transition-transform"
           >
-            <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">Total Customers</p>
-            <p className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+            <p className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2">Total Customers</p>
+            <p className="text-2xl font-bold text-gray-800 dark:text-white">
               {loading ? "—" : stats?.total_customers ?? 0}
             </p>
             <p className="text-xs text-gray-400 mt-1">Unique accounts logged</p>
@@ -241,7 +241,7 @@ export default function Dashboard() {
               <div
                 key={sale.id}
                 onClick={() => navigate(`/transactions/${sale.id}`)}
-                className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm cursor-pointer active:scale-[0.98] transition-transform"
+                className="bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-sm border border-gray-100 dark:border-gray-700 cursor-pointer active:scale-[0.98] transition-transform"
               >
                 {/* Top row — date + ID */}
                 <div className="flex items-center justify-between mb-3">
@@ -275,12 +275,12 @@ export default function Dashboard() {
                       )}
                     </div>
                     <div>
-                      <p className="font-bold text-gray-800 dark:text-gray-100 text-sm">
-                        {sale.product_name}
-                      </p>
-                      <p className="text-xs text-gray-400">
-                        {sale.product_name} (x{sale.quantity})
-                      </p>
+                     <p className="font-bold text-gray-800 dark:text-white text-sm">
+                      {sale.product_name}
+                    </p>
+                    <p className="text-xs text-gray-400 dark:text-gray-500">
+                      {sale.product_name} (x{sale.quantity})
+                    </p>
                     </div>
                   </div>
                   <div className="text-right">
@@ -292,10 +292,10 @@ export default function Dashboard() {
                 </div>
 
                 {/* Bottom row — customer name + status */}
-                <div className="flex items-center justify-between pt-2 border-t border-gray-50 dark:border-gray-700">
-                  <p className="text-xs text-gray-400">
+                <div className="flex items-center justify-between pt-2 border-t border-gray-100 dark:border-gray-700">
+                  <p className="text-xs text-gray-400 dark:text-gray-500">
                     By:{" "}
-                    <span className="font-semibold text-gray-600 dark:text-gray-300">
+                    <span className="font-semibold text-gray-600 dark:text-gray-200">
                       {sale.customer_name ?? "—"}
                     </span>
                   </p>

@@ -63,7 +63,7 @@ export default function ProductDetail() {
 
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-24 max-w-lg mx-auto">
-      <Header title="Product Details" />
+      <PageHeader title="Product Details" />
 
       <div className="px-4 pt-4">
         {/* Product card */}

@@ -77,17 +77,22 @@ export default function Settings() {
         <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-sm divide-y divide-gray-50 dark:divide-gray-700 mb-5">
 
           {/* Dark mode toggle */}
+          {/* Dark mode toggle */}
           <div className="flex items-center justify-between px-4 py-3.5">
             <div>
               <p className="text-sm text-gray-700 dark:text-gray-200 font-medium">Dark Mode</p>
-              <p className="text-xs text-gray-400">{dark ? "On" : "Off"}</p>
+              <p className="text-xs text-gray-400">{dark ? "Currently on" : "Currently off"}</p>
             </div>
             <button
-              onClick={toggle}
-              className={`w-12 h-6 rounded-full transition-colors duration-300 relative ${dark ? "bg-brand-600" : "bg-gray-200"}`}
+              onClick={() => {
+                toggle();
+                // force the class update immediately
+                document.documentElement.classList.toggle("dark");
+              }}
+              className={`w-12 h-6 rounded-full transition-colors duration-300 relative flex-shrink-0 ${dark ? "bg-brand-600" : "bg-gray-200"}`}
             >
               <span
-                className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow transition-all duration-300 ${dark ? "left-7" : "left-1"}`}
+                className={`absolute top-1 w-4 h-4 bg-white rounded-full shadow-md transition-all duration-300 ${dark ? "left-7" : "left-1"}`}
               />
             </button>
           </div>
